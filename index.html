@@ -318,7 +318,7 @@ async function main() {
     console.log('Starting!')
     
     for (let loopIndex = 0;; loopIndex++){
-        for (let i = startIndex; i < slides.length; i++) {
+        for (let i = 0; i < slides.length; i++) {
             const slideToHide = slides[(i + slides.length - 1) % slides.length];
             const slideToShow = slides[i % slides.length];
 

@@ -282,16 +282,25 @@ function waitImage(img) {
 }
 
 async function main() {
-    const slides = document.querySelectorAll('.slide');
+    const slides = Array.from(document.querySelectorAll('.slide'));
     for (const slide of slides) {
         slide.classList.add('faded', 'hidden');
     }
 
     {
+        for (const slide of slides) {
+            for (const img of Array.from(slide.querySelectorAll('img'))) {
+                img.loading = 'eager';
+            }
+        }
+
         const firstImage = slides[0].querySelector('img');
         if (firstImage) {
-            console.log('Waiting for the first image to load (or fail)...')
-            await waitImage(firstImage);
+            console.log('Waiting for the first image to load (or fail)...');
+            await Promise.race([
+                waitImage(firstImage),
+                rafDelay(30000),
+            ]);
         }
     }
     

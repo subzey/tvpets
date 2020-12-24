@@ -143,14 +143,7 @@ html {
     <body>
         <svg role="presentation" class="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" height="100" width="120"><path clip-rule="evenodd" d="M111.273 12.393A36.287 36.287 0 0 0 83.907 0c-8.79 0-17.314 3.34-23.84 9.083C53.674 3.206 45.15 0 36.093 0 16.115 0 0 15.896 0 35.532a34.747 34.747 0 0 0 5.915 19.443l1.913 2.292 26.619-23.92a9.09 9.09 0 1 1 17.459.43L68.45 48.253a9.055 9.055 0 0 1 3.878-.866c1.173 0 2.293.222 3.322.626zm4.129 6.156L80.794 53.157a9.09 9.09 0 1 1-17.132.57L47.116 39.25a9.055 9.055 0 0 1-3.878.866 9.053 9.053 0 0 1-4.277-1.067L12.8 62.548c.43.355.87.7 1.319 1.036L57.536 97.38c.666.535 1.598.802 2.397.802s1.732-.267 2.398-.802l44.484-34.464C115.205 56.104 120 46.086 120 35.532a34.86 34.86 0 0 0-2.347-12.609z" fill="currentcolor" fill-rule="evenodd"/></svg>
 
-        
-        <figure class="slide hidden">
-            <img src="images/foxy - Andrey Ivanov.jpg">
-            <figcaption>
-                <h2>Foxy</h2>
-                <p><i>и человек, который смоук-тестит своих коллег</i><br><strong>Андрей Иванов</strong>, <span class="glitch">&#xfffd;&#xfffd;&#xfffd;C</span>Sec
-            </figcaption>
-        </figure>
+
         <figure class="slide hidden">
             <img src="images/кошочка - Stanislav Rasskazov.jpg">
             <figcaption>
@@ -254,6 +247,13 @@ html {
         </figure>
         
 
+        <figure class="slide hidden">
+            <img src="images/foxy - Andrey Ivanov.jpg">
+            <figcaption>
+                <h2>Foxy</h2>
+                <p><i>и человек, который смоук-тестит своих коллег</i><br><strong>Андрей Иванов</strong>, <span class="glitch">&#xfffd;&#xfffd;&#xfffd;C</span>Sec
+            </figcaption>
+        </figure>
         <script>
 function rafDelay(delay) {
     return new Promise(r => {
@@ -270,14 +270,35 @@ function waitClick() {
     return new Promise(r => { clickHandler = r });
 }
 
+function waitImage(img) {
+    return new Promise(r => {
+        if (img.complete) {
+            r();
+            return;
+        }
+        img.addEventListener('load', r);
+        img.addEventListener('error', r);
+    });
+}
+
 async function main() {
     const slides = document.querySelectorAll('.slide');
     for (const slide of slides) {
         slide.classList.add('faded', 'hidden');
     }
 
+    {
+        const firstImage = slides[0].querySelector('img');
+        if (firstImage) {
+            console.log('Waiting for the first image to load (or fail)...')
+            await waitImage(firstImage);
+        }
+    }
+    
+    console.log('Starting!')
+    
     for (let loopIndex = 0;; loopIndex++){
-        for (let i = 1; i < slides.length; i++) {
+        for (let i = 0; i < slides.length; i++) {
             const slideToHide = slides[(i + slides.length - 1) % slides.length];
             const slideToShow = slides[i % slides.length];
 

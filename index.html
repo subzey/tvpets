@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>🐈🐕🌵</title>
+        <style>
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+html {
+    background: black;
+    color: white;
+    font: 6vh sans-serif;
+}
+
+.heart {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    color: #2196f3;
+}
+
+.slide {
+    will-change: transform;
+    contain: strict;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    background: rgba(0, 0, 0, .5);
+
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+.slide.hidden {
+    display: none;
+}
+
+.slide.faded {
+    opacity: 0;
+}
+
+.slide > img,
+.slide > video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.slide > .hidden {
+    display: none;
+}
+
+.slide > figcaption {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    padding: 0 3vh 3vh 3vh;
+    text-shadow: black 0 0 0.5vh;
+}
+
+.slide.faded > figcaption > p,
+.slide.faded > figcaption > h2 {
+    transition: transform 500ms, opacity 500ms;
+    transform: translateY(3vh);
+    opacity: 0;
+}
+
+.slide > figcaption > p {
+    white-space: nowrap;
+    margin: 0;
+    opacity: 0.75;
+    transform: translateY(0);
+    transition: transform 500ms 1500ms, opacity 500ms 1500ms;
+}
+.slide > figcaption > h2 {
+    font-size: 2em;
+    margin: 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 500ms 500ms, opacity 500ms 500ms;
+}
+
+.slide > figcaption i {
+    font-size: 0.75em;
+}
+
+.slide > figcaption i::before {
+    content: ' — ';
+}
+
+.slide > figcaption i::after {
+    content: ' — ';
+}
+
+.glitch {
+	display: inline-block;
+    position: relative;
+    margin-left: -1em;
+    top: -0.25em;
+}
+
+.glitch::before, .glitch::after {
+	content: '';
+	position: absolute;
+	top: 0.25em;
+	left: 0;
+    right: -1em;
+    bottom: -0.5em;
+	mix-blend-mode: difference;
+	animation: glitch-h 1315ms linear infinite;
+}
+
+.glitch::after {
+	background-size: 50% 50%;
+	animation-duration: 717ms;
+}
+
+@keyframes glitch-h {
+    0% { background-image: none }
+	80% { background-image: linear-gradient(cyan 50%, magenta 50%) }
+	85% { background-image: linear-gradient(yellow 25%, blue 25%) }
+    90% { background-image: linear-gradient(blue 85%, red 85%) }
+	95% { background-image: linear-gradient(magenta 20%, red 20%) }
+	100% { background-image: linear-gradient(cyan 75%, magenta 75%) }
+}
+        </style>
+    </head>
+    <body>
+        <svg role="presentation" class="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" height="100" width="120"><path clip-rule="evenodd" d="M111.273 12.393A36.287 36.287 0 0 0 83.907 0c-8.79 0-17.314 3.34-23.84 9.083C53.674 3.206 45.15 0 36.093 0 16.115 0 0 15.896 0 35.532a34.747 34.747 0 0 0 5.915 19.443l1.913 2.292 26.619-23.92a9.09 9.09 0 1 1 17.459.43L68.45 48.253a9.055 9.055 0 0 1 3.878-.866c1.173 0 2.293.222 3.322.626zm4.129 6.156L80.794 53.157a9.09 9.09 0 1 1-17.132.57L47.116 39.25a9.055 9.055 0 0 1-3.878.866 9.053 9.053 0 0 1-4.277-1.067L12.8 62.548c.43.355.87.7 1.319 1.036L57.536 97.38c.666.535 1.598.802 2.397.802s1.732-.267 2.398-.802l44.484-34.464C115.205 56.104 120 46.086 120 35.532a34.86 34.86 0 0 0-2.347-12.609z" fill="currentcolor" fill-rule="evenodd"/></svg>
+
+        
+        <figure class="slide hidden">
+            <img src="images/foxy - Andrey Ivanov.jpg">
+            <figcaption>
+                <h2>Foxy</h2>
+                <p><i>и человек, который смоук-тестит своих коллег</i><br><strong>Андрей Иванов</strong>, <span class="glitch">&#xfffd;&#xfffd;&#xfffd;C</span>Sec
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/кошочка - Stanislav Rasskazov.jpg">
+            <figcaption>
+                <h2>Мормышка</h2>
+                <p><i>и её человек</i><br><strong>Станислав Рассказов</strong>, QA
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/Keksik - Marina Groshikova.jpg">
+            <figcaption>
+                <h2>Кексик</h2>
+                <p><i>и его человек</i><br><strong>Марина Грошикова</strong>, Customer Support
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/156F607D-F9B6-45B6-8E8F-AAA832B40E74 - Anastasia Gnuni.jpeg">
+            <figcaption>
+                <h2>Pythagoras</h2>
+                <p><i>и его человек</i><br><strong>Анастасия Гнуни</strong>, Advertising Director 
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/23122020 - Maria Popova.jpg">
+            <figcaption>
+                <h2>Нюша</h2>
+                <p><i>и её человек</i><br><strong>Мария Попова</strong>, QA TradingView Desktop 
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/photo5411585882051424858 - Ilya Kuryakov.jpg">
+            <figcaption>
+                <h2>Алиса и Альфа</h2>
+                <p><i>и их человек</i><br><strong>Илья Курьяков</strong>, Chief Operating Officer
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/Frame 5 - Tatyana Gulyakina.png">
+            <figcaption>
+                <h2>Бусинка</h2>
+                <p><i>и её человек</i><br><strong>Таня Гулякина</strong>, Frontend Developer
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/Senya - Evgeniya Terentyeva.jpg">
+            <figcaption>
+                <h2>Сеня</h2>
+                <p><i>и его человек</i><br><strong>Евгения Терентьева</strong>, QA Backend
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/unnamed (5) - Yuriy Ovcharov.jpg">
+            <figcaption>
+                <h2>Лимон</h2>
+                <p><i>и его человек</i><br><strong>Юра Овчаров</strong>, Frontender
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/IMG_20201223_200149 - Anton Pavlenko.jpg">
+            <figcaption>
+                <h2>Лазорька</h2>
+                <p><i>и её человек</i><br><strong>Антон Павленко</strong>, Backend DevOps
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/Polish_20201224_002257525 - Kristina Gaitan.jpg">
+            <figcaption>
+                <h2>Милка</h2>
+                <p><i>и её человек</i><br><strong>Кристина Гайтан</strong>, Customer Support
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <video loop muted preload>
+                <source src="images/video_2020-12-24_12-30-49 - Viktoria Trush.mp4" type="video/mp4">
+            </video>
+            <figcaption>
+                <h2>Китаец</h2>
+                <p><i>и его человек</i><br><strong>Вика Труш</strong>, QA, PM Trading 
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/Screenshot 2020-12-24 at 13.54.25 - Yakov Naftaliev.png">
+            <figcaption>
+                <h2>Sheldon</h2>
+                <p><i>и его человек</i><br><strong>Яков Нафталиев</strong>, Frontend
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/8AABAF61-03D7-4863-B879-67016C21C635 - Sergey.jpg">
+            <img src="images/1F56CB16-D73D-404D-848D-CE7F46AB93ED - Sergey.jpg">
+            <figcaption>
+                <h2>Nika</h2>
+                <p><i>и её человек</i><br><strong>Сергей Бородин</strong>, Scrum Master, С++ developer <!-- eSignal -->
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/Кошка - Galina Kezlya.jpg">
+            <figcaption>
+                <h2>Яша</h2>
+                <p><i>и её человек</i><br><strong>Галя Кезля</strong>, Office manager SPB
+            </figcaption>
+        </figure>
+        
+
+        <script>
+function rafDelay(delay) {
+    return new Promise(r => {
+        setTimeout(() => {
+            requestAnimationFrame(r);
+        }, delay);
+    });
+}
+
+let clickHandler = () => {};
+document.documentElement.addEventListener('click', () => clickHandler() );
+
+function waitClick() {
+    return new Promise(r => { clickHandler = r });
+}
+
+async function main() {
+    const slides = document.querySelectorAll('.slide');
+    for (const slide of slides) {
+        slide.classList.add('faded', 'hidden');
+    }
+
+    for (let loopIndex = 0;; loopIndex++){
+        for (let i = 1; i < slides.length; i++) {
+            const slideToHide = slides[(i + slides.length - 1) % slides.length];
+            const slideToShow = slides[i % slides.length];
+
+            { // Pick the next image if there are several
+                const images = Array.from(slideToShow.children).filter(e => e.matches('img, picture, video'));
+                for (let imageIndex = 0; imageIndex < images.length; imageIndex++) {
+                    images[imageIndex].classList.toggle('hidden', loopIndex % images.length !== imageIndex);
+                }
+            }
+
+            slideToHide.classList.add('faded');
+            slideToShow.classList.add('faded');
+            slideToShow.classList.remove('hidden');
+            await rafDelay(400);
+            slideToShow.classList.remove('faded');
+            { // Autoplay video
+                const video = slideToShow.querySelector('video:not(.hidden)');
+                if (video) {
+                    video.currentTime = 0;
+                    video.play();
+                }
+            }
+            { // Stop video
+                const video = slideToHide.querySelector('video:not(.hidden)');
+                if (video) {
+                    video.pause();
+                }
+            }
+            await Promise.race([
+                rafDelay(20000),
+                waitClick(),
+            ]);
+            slideToHide.classList.add('hidden');
+        }
+    }
+}
+
+main();
+        </script>
+    </body>
+</html>

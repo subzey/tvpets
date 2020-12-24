@@ -249,6 +249,13 @@ html {
                 <p><i>и её человек</i> <strong>Галя Кезля</strong>, Office manager SPB
             </figcaption>
         </figure>
+        <figure class="slide hidden">
+            <img src="images/DSC05167 - Alexey Kuznetsov.png">
+            <figcaption>
+                <h2>Ксюня</h2>
+                <p><i>и её человек</i> <strong>Алексей Кузнецов</strong>, Pine
+            </figcaption>
+        </figure>
         
 
         <figure class="slide hidden">
@@ -311,7 +318,7 @@ async function main() {
     console.log('Starting!')
     
     for (let loopIndex = 0;; loopIndex++){
-        for (let i = 0; i < slides.length; i++) {
+        for (let i = startIndex; i < slides.length; i++) {
             const slideToHide = slides[(i + slides.length - 1) % slides.length];
             const slideToShow = slides[i % slides.length];
 

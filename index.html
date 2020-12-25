@@ -432,7 +432,7 @@ async function main() {
             console.log('Waiting for the first image to load (or fail)...');
             await Promise.race([
                 waitImage(firstImage),
-                rafDelay(15000),
+                rafDelay(30000),
             ]);
         }
         document.body.classList.remove('loading');
@@ -475,7 +475,7 @@ async function main() {
                 }
             }
             await Promise.race([
-                rafDelay(20000),
+                rafDelay(15000),
                 waitClick(),
             ]);
             slideToHide.classList.add('hidden');

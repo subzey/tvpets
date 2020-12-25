@@ -29,6 +29,10 @@ html {
     color: #2196f3;
 }
 
+.loading .heart {
+    color: #666666;
+}
+
 .slide {
     will-change: transform;
     contain: strict;
@@ -257,6 +261,7 @@ html {
             </figcaption>
         </figure>
         <figure class="slide hidden">
+            <img src="images/IMG_20201225_120545.jpg">
             <img src="images/IMG_20201225_120557.jpg">
             <figcaption>
                 <h2>Пучи</h2>
@@ -342,7 +347,6 @@ html {
                 <p><i>и её человек</i> <strong>Артём Шумидуб</strong>, Android (@mars team lead)
             </figcaption>
         </figure>
-
         <figure class="slide hidden">
             <img src="images/FC84CEC6-C2E0-4F4B-AC32-A36943CFD0A8 - Constantin Ivanov.jpeg">
             <figcaption>
@@ -350,6 +354,21 @@ html {
                 <p><i>и её человек</i> <strong>Боб</strong>, Марли
             </figcaption>
         </figure>
+        <figure class="slide hidden">
+            <img src="images/IMG_5221.jpg">
+            <figcaption>
+                <h2>Бетти</h2>
+                <p><i>и её человек</i> <strong>Никита Чесноков</strong>, Frontender
+            </figcaption>
+        </figure>
+        <figure class="slide hidden">
+            <img src="images/IMG_20201225_100059.jpg">
+            <figcaption>
+                <h2>Авокадо и Авокадо</h2>
+                <p><i>и их человек</i> <strong>Никита Чесноков</strong>, Frontender
+            </figcaption>
+        </figure>
+
 <!--
         <figure class="slide hidden">
             <img src="images/-">
@@ -400,22 +419,28 @@ async function main() {
         slide.classList.add('faded', 'hidden');
     }
 
-    {
-        for (const slide of slides) {
+    for (const slide of slides) {
             for (const img of Array.from(slide.querySelectorAll('img'))) {
                 img.loading = 'eager';
             }
         }
 
+    {
+        document.body.classList.add('loading');
         const firstImage = slides[0].querySelector('img');
         if (firstImage) {
             console.log('Waiting for the first image to load (or fail)...');
             await Promise.race([
                 waitImage(firstImage),
-                rafDelay(30000),
+                rafDelay(15000),
             ]);
         }
+        document.body.classList.remove('loading');
     }
+
+    console.log('Waiting for click...');
+
+    await waitClick();
     
     console.log('Starting!')
     
